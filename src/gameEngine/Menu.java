@@ -2,6 +2,7 @@ package gameEngine;
 
 import java.util.Scanner;
 
+import player.IA;
 import player.Player;
 
 public class Menu {
@@ -17,7 +18,7 @@ public class Menu {
 		}
 		if (choice==1) {
 			Player p1 = new Player("Josette","X");
-			Player p2 = new Player("Paulette","O");
+			IA p2 = new IA("Paulette","O");
 			
 			Game game = new Game();
 			game.setPlayers(p1,p2);

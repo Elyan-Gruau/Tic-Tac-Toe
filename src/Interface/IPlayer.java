@@ -1,11 +1,11 @@
 package Interface;
 
+import gameEngine.Grille;
+
 public interface IPlayer {
-	public default void chooseCell() {
-		
-	}
+	int[] chooseCell(Grille g);
 	
-	public default String getName() {
-		
-	}
+	String getName();
+	
+	String getSymbol(IPlayer p);
 }
