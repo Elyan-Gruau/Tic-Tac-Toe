@@ -13,30 +13,27 @@ public class Player implements IPlayer {
 		symbol=s;
 	}
 	@Override
-	public int[] chooseCell(Grille g) {
+	public int chooseCell(Grille g) {
 		Scanner sc = new Scanner(System.in);
 		boolean free = false;
 		while ( !free) {
-			int choiceL = -1;
-			int choiceC = -1;
-			while (choiceC<1 || choiceC>3)  {
-				System.out.println("Choose column:\n>");
-				choiceC = sc.nextInt();
+			int choice = -1;
+			while (choice<1 || choice>9)  {
+				System.out.println("Choose cell:\n>");
+				choice = sc.nextInt();
 			}
-			while (choiceL<1 || choiceL>3 ) {
-				System.out.println("Choose line:\n>");
-				choiceL = sc.nextInt();
-			}
-			if (g.isFree(choiceC, choiceL)) {
-				int[] choices = {choiceL-1,choiceC-1};
-				return choices;
+			
+			if (g.isFree(choice-1)) {
+				
+				return choice-1;
 				
 			}
 			else {
-				System.out.println(choiceC+" "+choiceL+" is already used");
+				System.out.println(choice+" is already used");
 			}
 		}
-		return null;
+		return -1;
+		
 		
 		
 		

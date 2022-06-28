@@ -22,13 +22,16 @@ public class Game {
 		grille.show();
 		
 		while (winnerSymbol=="" && !grille.isFull() )  {
-			System.out.println("TURN n°"+turn);
-
-			grille.put(player1.chooseCell(grille), player1.getSymbol());
-			grille.show();
-			winnerSymbol = grille.getWinnerSymbol();
+			System.out.println("---------- TURN n°"+turn+" --------------");
+			if (!grille.isFull() && winnerSymbol=="") {
+				System.out.println(player1.getName()+" -> "+player1.getSymbol());
+				grille.put(player1.chooseCell(grille), player1.getSymbol());
+				grille.show();
+				winnerSymbol = grille.getWinnerSymbol();
+			}
 			
-			if ( !grille.isFull()) {
+			if ( !grille.isFull() && winnerSymbol=="") {
+				System.out.println(player2.getName()+" -> "+player2.getSymbol());
 				grille.put(player2.chooseCell(grille), player2.getSymbol());
 				grille.show();
 				winnerSymbol = grille.getWinnerSymbol();
@@ -36,26 +39,29 @@ public class Game {
 			
 			turn++;
 		}
+		System.out.println(winnerSymbol+" "+grille.isFull());
 		this.handleWinner();
 	}
 	
 	
 	public void handleWinner() {
 		System.out.println("handling winner");
-		if ( winnerSymbol ==player1.getSymbol())
-			
+		if ( winnerSymbol == player1.getSymbol()) {
 			winner=player1;
+			System.out.println("The winner is "+player1.getName()+" "+player1.getSymbol());
+		}
 		else if (winnerSymbol == player2.getSymbol()){
 			winner=player2;
-		}
-		else if(winnerSymbol == winner.getSymbol()) {
-			System.out.println("Match nulle");
+			System.out.println("The winner is "+player2.getName()+" "+player2.getSymbol());
 		}
 		else {
-			System.out.println("The winner is "+winner.getName()+" "+winner.getSymbol());
+			System.out.println("Match nulle");
 		}
 	}
-
+	public IPlayer getWinner() {
+		return this.winner;
+	}
+	
 	public void setPlayers(IPlayer p1, IPlayer p2) {
 		
 		player1 = p1;
