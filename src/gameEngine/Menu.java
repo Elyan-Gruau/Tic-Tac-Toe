@@ -38,7 +38,7 @@ public class Menu {
 			System.out.println(" IA TESTER");
 			
 			int levelA= 6;
-			int levelB= 1;
+			int levelB= 6;
 			String nameA = "A lvl"+levelA;
 			String nameB = "B lvl"+levelB;
 			

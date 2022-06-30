@@ -50,10 +50,11 @@ public class IA implements IPlayer{
 		}
 		if (choice==-1) {
 			//System.out.println("ERROR in chooseCell");
+			System.out.println("-1 !!!!");
 			choice=CCRandom(g);
 		}
 		if (!g.isFree(choice)) {
-			System.out.println("ERROR CELL IS NOT FREE");
+			System.out.println("ERROR CELL "+choice+" IS NOT FREE");
 			return -1;
 		}
 			
@@ -91,6 +92,13 @@ public class IA implements IPlayer{
 			choice = CCLookForDefense(g);
 			if (choice == -1) {
 				choice=CCMiddle(g);
+				if (choice==-1) {
+					choice=CCCorners(g);
+					System.out.println("CCCorners "+choice);
+					if(choice==-1) {
+						choice=CCRandom(g);
+					}
+				}
 			}
 		}
 		return choice;
@@ -240,14 +248,14 @@ public class IA implements IPlayer{
 		
 		int[] corners = {0,2,6,8};
 		Random rd = new Random();
-		for (int i=0; i<10;i++) { //Max try = 10
+		for (int i=0; i<15;i++) { //Max try = 10
 			int choice=rd.nextInt(4);
 			
 			if (g.isFree(corners[choice])){
-				return choice;
+				return corners[choice];
 			}
 		}
-		return CCRandom(g);
+		return -1;
 	}
 	
 	public int CCMiddle(Grille g) {
@@ -255,7 +263,7 @@ public class IA implements IPlayer{
 			return 4;
 		}
 		else {
-			return CCRandom(g);
+			return -1;
 		}
 	}
 	
