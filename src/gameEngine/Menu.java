@@ -13,18 +13,25 @@ public class Menu {
 	public void affiche() {
 		// TODO Auto-generated method stub
 		System.out.println("1 - play");
-		Scanner scanner = new Scanner(System.in);
+		
 		
 		boolean on = true;
 		while (on) {
 			int choice = -1;
+			Scanner scanner = new Scanner(System.in);
 			while (choice<0 || choice>30) {
 				choice = scanner.nextInt();
-				System.out.println("ii = "+choice);
+				
 			}
 			if (choice==1) {
 				Random rd = new Random();
-				Player p1 = new Player("Elyan","x");
+				Scanner SCname = new Scanner(System.in);
+				
+				System.out.println("Your name :");
+				String playerName = SCname.next();
+				
+				
+				Player p1 = new Player(playerName,"x");
 				IA p2 = new IA("PauletteBot","o",6);
 				
 				Game game = new Game();
@@ -40,8 +47,8 @@ public class Menu {
 			else if(choice==12) {
 				System.out.println(" IA TESTER");
 				
-				int levelA= 6;
-				int levelB= 1;
+				int levelA= 1;
+				int levelB= 6;
 				String nameA = "A lvl"+levelA;
 				String nameB = "B lvl"+levelB;
 				
@@ -81,8 +88,7 @@ public class Menu {
 					else if(winner == A) {
 						nbWinA+=1;
 						if (AFirst) {
-							nbWinAF++;
-						}
+							nbWinAF++;						}
 						else {
 							nbWinAL++;
 						}
@@ -104,6 +110,7 @@ public class Menu {
 				System.out.println(nameB+": "+(nbWinB/nbGame*100)+"% ("+nbWinB+") First "+(nbWinBF/nbGame*100)+"% Last "+(nbWinBL/nbGame*100)+"%");
 				System.out.println("Null: "+(nbNull/nbGame*100)+"% ("+nbNull+")");
 			}
+			
 		}
 		
 		

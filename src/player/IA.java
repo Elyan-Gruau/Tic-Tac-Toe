@@ -46,7 +46,19 @@ public class IA implements IPlayer{
 		case 6:
 			choice=CC6(g);
 			break;
-		
+		case -1:
+			choice=CC1Playable(g);
+			break;
+		case -2:
+			choice=CC2Playable(g);
+			break;
+		case -3:
+			choice=CC3Playble(g);
+			break;
+		case -4:
+			choice=CC4Playable(g);
+			break;
+			
 		}
 		if (choice==-1) {
 			//System.out.println("ERROR in chooseCell");
@@ -62,6 +74,25 @@ public class IA implements IPlayer{
 	}
 
 	
+	private int CC4Playable(Grille g) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private int CC3Playble(Grille g) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private int CC2Playable(Grille g) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private int CC1Playable(Grille g) {
+		return CCRandom(g);
+	}
+
 	public int CC1(Grille g) {
 		return CCRandom(g);
 	}

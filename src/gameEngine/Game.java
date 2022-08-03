@@ -17,6 +17,7 @@ public class Game {
 		}
 		else {
 			System.out.println(player1.getName()+" VS. "+player2.getName());
+			System.out.println("Starting with "+player1.getName());
 		}
 		Grille grille = new Grille();
 		grille.show();
