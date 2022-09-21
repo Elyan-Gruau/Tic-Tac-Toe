@@ -67,7 +67,7 @@ public class Game {
 			showWinner(player2);
 		}
 		else {
-			System.out.println("Match nulle");
+			System.out.println("Match nul");
 		}
 	}
 	

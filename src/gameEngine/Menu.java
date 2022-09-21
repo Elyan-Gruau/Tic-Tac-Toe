@@ -31,8 +31,8 @@ public class Menu {
 				String playerName = SCname.next();
 				
 				
-				Player p1 = new Player(playerName,"x");
-				IA p2 = new IA("PauletteBot","o",6);
+				Player p2 = new Player(playerName,"x");
+				IA p1 = new IA("PauletteBot","o",6);
 				
 				Game game = new Game();
 				if (rd.nextInt(2)==0) {
