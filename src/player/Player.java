@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Interface.IPlayer;
 import gameEngine.Grille;
+import gameEngine.WaitThread;
 
 public class Player implements IPlayer {
 	String name;
@@ -30,10 +31,10 @@ public class Player implements IPlayer {
 				choice = sc.nextInt();
 			}
 			 */
+			WaitThread wt = new WaitThread(this);
+			wt.start();
+			c = choice;
 
-			c = waitForPress(10);
-
-				
 			if (g.isFree(c)) {
 				return c;
 					
@@ -68,21 +69,17 @@ public class Player implements IPlayer {
 	}
 
 	@Override
-	public void castPressed(int id) {
+	public synchronized void castPressed(int id) {
 		choice = id;
+		System.out.println("cast successful!");
+		this.notifyAll();
 	}
 
-	public int waitForPress(int milisecs){
 
-		while (choice==-2){
-
-			try {
-				Thread.sleep(14);
-			} catch (InterruptedException e) {
-				throw new RuntimeException(e);
-			}
-		}
+	public int getChoice() {
 		return choice;
+
 	}
+
 
 }

@@ -14,4 +14,6 @@ public interface IPlayer {
 	int getId();
 
 	void castPressed(int id);
+
+
 }

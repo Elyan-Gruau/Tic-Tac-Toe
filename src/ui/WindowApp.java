@@ -223,7 +223,7 @@ public class WindowApp extends Application{
 		return tc;
 	}
 	
-	private Button buttonMaker(int id) {
+	private  Button buttonMaker(int id) {
 		Button btn = new Button(" ");
 		btn.setMinHeight(100);
 		btn.setMinWidth(100);
