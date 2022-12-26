@@ -8,4 +8,10 @@ public interface IPlayer {
 	String getName();
 	
 	String getSymbol();
+
+    void setId(int i);
+
+	int getId();
+
+	void castPressed(int id);
 }

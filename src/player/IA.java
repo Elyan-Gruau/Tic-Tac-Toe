@@ -9,6 +9,7 @@ public class IA implements IPlayer{
 	String name;
 	String symbol;
 	int level;
+	int id;
 	
 	
 	public IA(String n, String s) {
@@ -313,6 +314,21 @@ public class IA implements IPlayer{
 	@Override
 	public String getSymbol() {
 		return this.symbol;
+	}
+
+	@Override
+	public void setId(int i) {
+		this.id = i;
+	}
+
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public void castPressed(int id) {
+		// nothing
 	}
 
 }

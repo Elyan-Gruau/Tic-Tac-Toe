@@ -21,7 +21,7 @@ public class Menu {
 			Scanner scanner = new Scanner(System.in);
 			while (choice<0 || choice>30) {
 				choice = scanner.nextInt();
-				
+				 
 			}
 			if (choice==1) {
 				Random rd = new Random();

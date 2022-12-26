@@ -1,39 +1,32 @@
 package gameEngine;
 
+import java.util.ArrayList;
+
+import javafx.scene.control.Button;
 import player.Player;
 
 public class Grille {
     int  size=3;
     int nbFull=0;
-    String voidSymbol="·";
+    String voidSymbol="ï¿½";
     String[] grille= {"1","2","3","4","5","6","7","8","9"};
+    ArrayList<Button> visualGrille = new ArrayList<>();
     
-   
-	public void show() {
-		System.out.println("\n +———————+");
-		int[] j = {0,3,6};
-		int cpt=1;
-		for (int i:j) {
-			String line = "";
-    		line+=grille[i]+" "+grille[i+1]+" "+grille[i+2] ;    		
-    		System.out.println(" | "+line+" |");
-    		cpt++;
+    
+    public void update() {
+    	for (int i=0;i<9;i++) {
+    		
+    		if (grille[i]==" ") {
+    			visualGrille.get(i).setDisable(false);
+
+    		}
     	}
-		System.out.println(" +———————+");
-	}
-	public void showWithHelp() {
-		System.out.println("\n +———————+");
-		int[] j = {0,3,6};
-		int cpt=1;
-		for (int i:j) {
-			String line = "";
-    		String help ="   "+(i+1)+" "+(i+2)+" "+(i+3)+" " ;
-    		line+=grille[i]+" "+grille[i+1]+" "+grille[i+2] ;    		
-    		System.out.println(" | "+line+" |"+ help);
-    		cpt++;
-    	}
-		System.out.println(" +———————+");
-	}
+    }
+    
+    public void addVisualBoard(ArrayList<Button> board) {
+    	this.visualGrille = board;
+    }
+    
 	
 	
     public Grille() {
@@ -44,15 +37,7 @@ public class Grille {
     		grille[i+2]=voidSymbol;    		
     	}
     	
-    	/*
-    	for (int i=0; i<size;i++) {
-    		for (int j=0;j<size;j++) {
-    			this.grille[i][j]=voidSymbol;
-    			
-    		}
-    		
-    	}
-    	*/
+    	
     }
     public boolean isFull() {
     	return nbFull==size*size;
